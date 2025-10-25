@@ -3,183 +3,128 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Freelance Tech — Landing</title>
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {},
-          fontFamily: { sans: ['ui-sans-serif','system-ui','-apple-system','Segoe UI','Roboto','Inter','Arial'] }
-        }
-      }
-    }
-  </script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- React 18 UMD + ReactDOM + Babel for JSX -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>Kishan Patel — Freelance Tech Sales</title>
+  <meta name="description" content="Kishan Patel — Freelance Tech Sales. Professional one-page profile with contact and social links." />
+  <link rel="icon" href="assets/favicon.png" />
   <style>
-    body { background: radial-gradient(1200px 700px at 20% -10%, rgba(56,189,248,.15), transparent),
-                   radial-gradient(1200px 700px at 120% 110%, rgba(56,189,248,.12), transparent),
-                   #0b1220; }
+    :root{
+      --bg:#0b1220; --grad1: rgba(56,189,248,.15); --grad2: rgba(56,189,248,.12);
+      --card:#111827; --line:#1f2937; --muted:#93a3c8; --text:#eaf2ff; --accent:#60a5fa; --accent2:#34d399;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:
+      radial-gradient(1200px 700px at 20% -10%, var(--grad1), transparent),
+      radial-gradient(1200px 700px at 120% 110%, var(--grad2), transparent),
+      var(--bg);
+      color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;line-height:1.45}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px}
+    header{position:sticky;top:0;backdrop-filter:saturate(120%) blur(6px);background:rgba(11,18,32,.45);border-bottom:1px solid rgba(255,255,255,.08)}
+    header .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:36px;height:36px;display:grid;place-items:center;border-radius:12px;background:rgba(92,200,255,.18);border:1px solid rgba(92,200,255,.35);color:#89d5ff;font-weight:700}
+    nav a{color:#c7d6f5;margin-left:16px;font-size:14px;opacity:.9}
+    nav a:hover{color:white;opacity:1}
+    .grid{display:grid;grid-template-columns:1fr;gap:28px;margin-top:28px}
+    @media(min-width:980px){.grid{grid-template-columns:420px 1fr}}
+    .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+    .portrait{aspect-ratio:4/5;width:100%;border-radius:22px;overflow:hidden}
+    .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+    h1{font-size:40px;margin:0 0 6px}
+    .subtitle{color:var(--accent);font-size:20px;margin:0 0 10px}
+    .tagline{color:#c7d6f5;max-width:60ch;margin:8px 0 16px}
+    .row, .socials{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{display:inline-block;padding:8px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);font-size:13px;color:#dbe6ff}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.08);font-weight:600}
+    .btn.primary{background:#fff;color:#0b1220;border-color:#fff}
+    .btn:hover{transform:translateY(-1px)}
+    .section{padding:20px}
+    .section h2{margin:0 0 8px;font-size:18px}
+    ul.clean{list-style:none;padding:0;margin:8px 0 0;color:#c7d6f5}
+    ul.clean li{margin:6px 0}
+    footer{border-top:1px solid rgba(255,255,255,.08);color:#9fb1d6;padding:18px 0;margin-top:30px}
   </style>
 </head>
-<body class="text-slate-100">
-  <div id="root"></div>
+<body>
+  <header>
+    <div class="wrap bar">
+      <div class="brand">
+        <div class="logo">KP</div>
+        <div>
+          <div style="font-weight:700">Kishan Patel</div>
+          <div style="font-size:12px;color:#9fb1d6">Freelance Tech Sales</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  <script type="text/babel">
-    const SITE_DATA = {
-      name: "Alex Dubois",
-      title: "Software & Tech Solutions",
-      tagline: "Helping creators and businesses choose, set up, and support the right software.",
-      photoUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop",
-      email: "contact@duboisdigital.ca",
-      phone: "+1 (514) 555-0199",
-      location: "Montreal, QC",
-      socials: [
-        { label: "Website", href: "https://duboisdigital.ca", icon: "globe" },
-        { label: "LinkedIn", href: "https://www.linkedin.com/in/username", icon: "linkedin" },
-        { label: "Instagram", href: "https://www.instagram.com/username", icon: "instagram" },
-        { label: "Facebook", href: "https://www.facebook.com/username", icon: "facebook" },
-        { label: "Email", href: "mailto:contact@duboisdigital.ca", icon: "mail" },
-        { label: "Phone", href: "tel:+15145550199", icon: "phone" },
-      ],
-    };
+  <main class="wrap">
+    <div class="grid">
+      <div>
+        <div class="card"><div class="portrait"><img src="assets/portrait.jpg" alt="Kishan Patel portrait" /></div></div>
+      </div>
 
-    function SocialButton({ label, href, icon }) {
-      React.useEffect(() => {
-        // ensure lucide icons replaced after render
-        window.lucide && window.lucide.createIcons();
-      }, []);
-      return (
-        <a
-          href={href}
-          target="_blank"
-          rel="noreferrer noopener"
-          className="group inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 hover:border-white/20 transition"
-        >
-          <i data-lucide={icon} className="w-4 h-4 opacity-80 group-hover:opacity-100"></i>
-          <span>{label}</span>
-        </a>
-      );
-    }
+      <div>
+        <h1>Kishan Patel</h1>
+        <p class="subtitle">Software & Tech Solutions</p>
+        <p class="tagline">Helping creators and small businesses choose and set up the right software — from Adobe Creative Cloud to productivity tools — with quick support and clear guidance.</p>
 
-    function App() {
-      const { name, title, tagline, photoUrl, email, phone, location, socials } = SITE_DATA;
-      return (
-        <main className="min-h-screen">
-          {/* Header */}
-          <header className="sticky top-0 z-30 backdrop-blur bg-slate-900/40 border-b border-white/10">
-            <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="size-9 rounded-xl bg-sky-500/20 ring-1 ring-sky-400/30 grid place-items-center">
-                  <span className="text-sky-300 font-semibold">{(name || '').split(' ').map(x=>x[0]).join('').slice(0,2).toUpperCase()}</span>
-                </div>
-                <div className="leading-tight">
-                  <p className="font-semibold tracking-tight">{name}</p>
-                  <p className="text-xs text-slate-400">{title}</p>
-                </div>
-              </div>
-              <nav className="hidden sm:flex items-center gap-6 text-sm text-slate-300">
-                <a href="#about" className="hover:text-white transition">About</a>
-                <a href="#contact" className="hover:text-white transition">Contact</a>
-              </nav>
-            </div>
-          </header>
+        <div class="socials" style="margin:14px 0 8px">
+          <a class="btn primary" href="mailto:kishan07@gmail.com">Email</a>
+          <a class="btn" href="tel:+15149536243">Call</a>
+          <a class="btn" href="https://wa.me/15149536243" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn" href="https://www.linkedin.com/in/kishan-patel-b-eng-17b539156/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://www.instagram.com/kishan_07/" target="_blank" rel="noopener">Instagram</a>
+        </div>
 
-          {/* Hero */}
-          <section className="mx-auto max-w-6xl px-6 pt-14 pb-10">
-            <div className="grid lg:grid-cols-[420px_1fr] gap-10 items-center">
-              <div className="relative">
-                <div className="aspect-[4/5] overflow-hidden rounded-3xl ring-1 ring-white/10 shadow-2xl">
-                  <img src={photoUrl} alt={name + ' portrait'} className="h-full w-full object-cover" />
-                </div>
-                <div className="absolute -bottom-4 -right-4 bg-slate-800/80 backdrop-blur rounded-2xl border border-white/10 px-4 py-2 text-sm text-slate-300 shadow-xl">
-                  {location}
-                </div>
-              </div>
+        <div class="row" style="margin-top:10px">
+          <a class="chip" href="mailto:kishan07@gmail.com">kishan07@gmail.com</a>
+          <span class="chip">+1 (514) 953‑6243</span>
+        </div>
 
-              <div>
-                <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
-                  {name}
-                  <span className="block text-sky-300 text-xl md:text-2xl mt-2">{title}</span>
-                </h1>
-                <p className="mt-4 text-slate-300/90 leading-relaxed max-w-prose">{tagline}</p>
+        <div style="margin-top:16px">
+          <a class="btn primary" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </div>
 
-                {/* Socials */}
-                <div className="mt-6 flex flex-wrap items-center gap-3">
-                  {socials.map((s) => <SocialButton key={s.label} {...s} />)}
-                </div>
+    <section id="about" class="section card" style="margin-top:28px">
+      <h2>About</h2>
+      <p class="tagline">I specialize in software sales and onboarding for individuals and small businesses. Whether you need Adobe Premiere Pro, Creative Cloud, Microsoft 365, or collaboration tools, I help you choose the right plan, activate your license, and keep things running smoothly.</p>
+    </section>
 
-                {/* Contact chips */}
-                <div className="mt-4 flex flex-wrap gap-3 text-sm">
-                  <a href={`mailto:${email}`} className="rounded-xl bg-sky-500/10 text-sky-200 ring-1 ring-sky-400/30 px-3 py-1.5 hover:bg-sky-500/20 transition">{email}</a>
-                  <a href={`tel:${phone}`} className="rounded-xl bg-emerald-500/10 text-emerald-200 ring-1 ring-emerald-400/30 px-3 py-1.5 hover:bg-emerald-500/20 transition">{phone}</a>
-                </div>
+    <section id="services" class="section card" style="margin-top:16px">
+      <h2>Services</h2>
+      <ul class="clean">
+        <li>• Software sales & licensing guidance (Adobe, Microsoft, productivity tools)</li>
+        <li>• Installation & activation support (Mac & Windows)</li>
+        <li>• Account & billing troubleshooting</li>
+        <li>• Ongoing tech support and quick help via email/WhatsApp</li>
+      </ul>
+    </section>
 
-                <div className="mt-8">
-                  <a href="#contact" className="inline-flex items-center justify-center rounded-2xl bg-white text-slate-950 px-5 py-3 font-medium shadow hover:shadow-lg active:scale-[0.98] transition">
-                    Get in touch
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
+    <section id="contact" class="section card" style="margin-top:16px">
+      <h2>Contact</h2>
+      <p class="tagline">Reach out by email or WhatsApp — typically replies within 24 hours.</p>
+      <div class="socials">
+        <a class="btn primary" href="mailto:kishan07@gmail.com">Email Kishan</a>
+        <a class="btn" href="https://wa.me/15149536243" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn" href="https://www.linkedin.com/in/kishan-patel-b-eng-17b539156/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
 
-          {/* About */}
-          <section id="about" className="mx-auto max-w-6xl px-6 pb-16">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="rounded-3xl bg-white/5 border border-white/10 p-6 shadow-xl">
-                <h2 className="text-xl font-semibold">About</h2>
-                <p className="mt-3 text-slate-300/90">
-                  I help individuals and small businesses choose, license, and set up the right software — from Adobe Creative Cloud to productivity suites and collaboration tools. Clear pricing, fast setup, and friendly ongoing support.
-                </p>
-              </div>
-              <div className="rounded-3xl bg-white/5 border border-white/10 p-6 shadow-xl">
-                <h2 className="text-xl font-semibold">Services</h2>
-                <ul className="mt-3 grid gap-2 text-slate-300/90">
-                  <li>• Software sales & licensing guidance</li>
-                  <li>• Installation & activation support</li>
-                  <li>• Account & billing troubleshooting</li>
-                  <li>• Ongoing tech support (as needed)</li>
-                </ul>
-              </div>
-            </div>
-          </section>
+    <footer>
+      <div class="wrap" style="padding:0">
+        © <span id="y"></span> Kishan Patel — All rights reserved
+      </div>
+    </footer>
+  </main>
 
-          {/* Contact */}
-          <section id="contact" className="mx-auto max-w-6xl px-6 pb-24">
-            <div className="rounded-3xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 p-6 md:p-8 shadow-2xl">
-              <h2 className="text-xl font-semibold">Contact</h2>
-              <p className="mt-2 text-slate-300/90">Prefer email or WhatsApp? Use the buttons below.</p>
-
-              <div className="mt-5 flex flex-wrap gap-3">
-                <a href={'mailto:' + SITE_DATA.email} className="inline-flex items-center gap-2 rounded-2xl bg-white text-slate-950 px-4 py-2 font-medium shadow hover:shadow-lg transition">
-                  <i data-lucide="mail" className="w-4 h-4"></i> Email
-                </a>
-                <a href={'tel:' + SITE_DATA.phone} className="inline-flex items-center gap-2 rounded-2xl bg-white/10 border border-white/10 px-4 py-2 font-medium hover:bg-white/20 transition">
-                  <i data-lucide="phone" className="w-4 h-4"></i> Call
-                </a>
-              </div>
-            </div>
-          </section>
-
-          <footer className="border-t border-white/10">
-            <div className="mx-auto max-w-6xl px-6 py-6 text-sm text-slate-400 flex items-center justify-between">
-              <p>© {(new Date()).getFullYear()} {SITE_DATA.name}. All rights reserved.</p>
-              <p>Built with <span className="text-sky-300">React + Tailwind (CDN)</span></p>
-            </div>
-          </footer>
-        </main>
-      );
-    }
-
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 </body>
 </html>
